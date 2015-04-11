@@ -1,11 +1,3 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-
 " Vundle and Plugin settings
 set nocompatible
 filetype off
@@ -15,13 +7,19 @@ call vundle#begin()
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'gmarik/Vundle.vim'
 
-" List of Plugins
+""""" List of Plugins
+""" Feature Plugins
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'powerline/powerline'
+Plugin 'scrooloose/syntastic'
+""" Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+""" Python
+"Plugin 'klen/python-mode'
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -77,12 +75,15 @@ set nu
 set hls
 set hidden             " Hide buffers when they are abandoned
 set noet ci pi sts=0 sw=4 ts=4
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
+
+" Reload vimrc immediately after save
+autocmd! bufwritepost .vimrc source %
 
 " Markdown mode
 filetype plugin indent on
@@ -91,11 +92,23 @@ autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_ca
 autocmd BufRead,BufNewFile *.md set linebreak
 autocmd BufRead,BufNewFile *.md set breakat=\
 
+" Python mode
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+
 " Key remaps -- Handles moving up and down
 nnoremap j gj
 nnoremap k gk
+let mapleader=","
+vnoremap < <gv
+vnoremap > >gv
 
 " Menu completion
 set wildmenu
 set wcm=<TAB>
 set wildmode=longest:full,full
+
+" Disable backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
