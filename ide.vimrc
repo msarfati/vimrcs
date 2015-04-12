@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'powerline/powerline'
 Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-togglemouse'
 """ Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -22,7 +23,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nvie/vim-flake8'
 """ Markdown
 Plugin 'gabrielelana/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+"Plugin 'suan/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,8 +92,8 @@ autocmd! bufwritepost .vimrc source %
 " Markdown mode
 filetype plugin indent on
 syntax on
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_slow = 1
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_ca
 autocmd BufRead,BufNewFile *.md set linebreak
@@ -108,7 +109,7 @@ let mapleader=","
 vnoremap < <gv
 vnoremap > >gv
 set clipboard=unnamedplus
-" Quicksave
+"" Quicksave
 noremap <Leader>s :update<CR>
 noremap <Leader>q :q<CR>
 
