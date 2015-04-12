@@ -20,6 +20,9 @@ Plugin 'airblade/vim-gitgutter'
 """ Python
 "Plugin 'klen/python-mode'
 Plugin 'nvie/vim-flake8'
+""" Markdown
+Plugin 'gabrielelana/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,6 +91,9 @@ autocmd! bufwritepost .vimrc source %
 " Markdown mode
 filetype plugin indent on
 syntax on
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_slow = 1
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_ca
 autocmd BufRead,BufNewFile *.md set linebreak
 autocmd BufRead,BufNewFile *.md set breakat=\
@@ -95,12 +101,16 @@ autocmd BufRead,BufNewFile *.md set breakat=\
 " Python mode
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
-" Key remaps -- Handles moving up and down
+""" Key remaps -- Handles moving up and down
 nnoremap j gj
 nnoremap k gk
 let mapleader=","
 vnoremap < <gv
 vnoremap > >gv
+set clipboard=unnamedplus
+" Quicksave
+noremap <Leader>s :update<CR>
+noremap <Leader>q :q<CR>
 
 " Menu completion
 set wildmenu
@@ -111,4 +121,3 @@ set wildmode=longest:full,full
 set nobackup
 set nowritebackup
 set noswapfile
-
