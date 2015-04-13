@@ -12,9 +12,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'powerline/powerline'
+"Plugin 'powerline/powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-togglemouse'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdcommenter'
+""" Themes
+"Plugin 'sickill/vim-monokai'
+Plugin 'tomasr/molokai'
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'wellsjo/wells-colorscheme.vim'
 """ Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -24,6 +31,8 @@ Plugin 'nvie/vim-flake8'
 """ Markdown
 Plugin 'gabrielelana/vim-markdown'
 "Plugin 'suan/vim-instant-markdown'
+""" Common Lisp
+"Plugin 'kovisoft/slimv'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,7 +111,7 @@ autocmd BufRead,BufNewFile *.md set breakat=\
 " Python mode
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
-""" Key remaps -- Handles moving up and down
+""""" Key remaps -- Handles moving up and down
 nnoremap j gj
 nnoremap k gk
 let mapleader=","
@@ -112,6 +121,10 @@ set clipboard=unnamedplus
 "" Quicksave
 noremap <Leader>s :update<CR>
 noremap <Leader>q :q<CR>
+"" Quick commenting
+"nmap <Leader>/ :echo "Yes"<CR>
+noremap <Leader>/ :call NERDComment(0,"toggle") <CR>
+"noremap <Leader>/ <plug>NERDCommenterInvert
 
 " Menu completion
 set wildmenu
@@ -122,3 +135,11 @@ set wildmode=longest:full,full
 set nobackup
 set nowritebackup
 set noswapfile
+
+" vim-airline
+set laststatus=2
+set ttimeoutlen=50
+
+" Enable color
+" Remember to put this in .bashrc to work with terminator: export TERM=xterm-256color
+colorscheme molokai
