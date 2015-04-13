@@ -104,9 +104,9 @@ syntax on
 "let g:instant_markdown_autostart = 0
 "let g:instant_markdown_slow = 1
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_ca
-autocmd BufRead,BufNewFile *.md set linebreak
-autocmd BufRead,BufNewFile *.md set breakat=\
+autocmd FileType markdown set spell spelllang=en_ca
+autocmd FileType markdown set linebreak
+autocmd FileType markdown set breakat=\ <CR>
 
 " Python mode
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
