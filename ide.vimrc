@@ -17,6 +17,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-togglemouse'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'dahu/vimple'
+Plugin 'Raimondi/vim-buffalo'
+Plugin 'zhaocai/GoldenView.Vim'
 """ Themes
 "Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
@@ -128,9 +131,19 @@ imap <C-k> <esc>"_d$i
 noremap <Leader>s :update<CR>
 noremap <Leader>q :q<CR>
 "" Quick commenting
-"nmap <Leader>/ :echo "Yes"<CR>
 noremap <Leader>/ :call NERDComment(0,"toggle") <CR>
-"noremap <Leader>/ <plug>NERDCommenterInvert
+"" Quick Buffer & Windows
+map <silent><Leader>n <esc>:tabprevious<CR>
+map <silent><Leader>m <esc>:tabnext<CR>
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <c-J> <c-w>J
+map <c-K> <c-w>K
+map <c-L> <c-w>L
+map <c-H> <c-w>H
+map <Leader>, :NERDTreeToggle<CR>
 
 " Menu completion
 set wildmenu
