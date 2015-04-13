@@ -9,7 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 
 """"" List of Plugins
 """ Feature Plugins
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'msarfati/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bronson/vim-trailing-whitespace'
 "Plugin 'powerline/powerline'
@@ -33,6 +33,7 @@ Plugin 'gabrielelana/vim-markdown'
 "Plugin 'suan/vim-instant-markdown'
 """ Common Lisp
 "Plugin 'kovisoft/slimv'
+Plugin 'vim-scripts/paredit.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,6 +112,10 @@ autocmd FileType markdown set breakat=\ <CR>
 " Python mode
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
+" Lisp mode
+"autocmd FileType lisp :call AutoPairsToggle()
+
+
 """"" Key remaps -- Handles moving up and down
 nnoremap j gj
 nnoremap k gk
@@ -118,6 +123,7 @@ let mapleader=","
 vnoremap < <gv
 vnoremap > >gv
 set clipboard=unnamedplus
+imap <C-k> <esc>"_d$i
 "" Quicksave
 noremap <Leader>s :update<CR>
 noremap <Leader>q :q<CR>
