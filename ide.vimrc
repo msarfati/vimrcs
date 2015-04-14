@@ -21,6 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'dahu/vimple'
 Plugin 'Raimondi/vim-buffalo'
 Plugin 'msarfati/GoldenView.Vim'
+Plugin 'tpope/vim-surround'
 """ Themes
 "Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
