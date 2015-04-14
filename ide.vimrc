@@ -16,10 +16,11 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-togglemouse'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 Plugin 'dahu/vimple'
 Plugin 'Raimondi/vim-buffalo'
-Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'msarfati/GoldenView.Vim'
 """ Themes
 "Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
@@ -128,22 +129,23 @@ vnoremap > >gv
 set clipboard=unnamedplus
 imap <C-k> <esc>"_d$i
 "" Quicksave
-noremap <Leader>s :update<CR>
+noremap <Leader>w :update<CR>
 noremap <Leader>q :q<CR>
 "" Quick commenting
-noremap <Leader>/ :call NERDComment(0,"toggle") <CR>
+"noremap <Leader>/ :call NERDComment(0,"toggle") <CR>
+map <silent><Leader>/ <Plug>CommentaryLine
 "" Quick Buffer & Windows
 map <silent><Leader>n <esc>:tabprevious<CR>
 map <silent><Leader>m <esc>:tabnext<CR>
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-map <c-J> <c-w>J
-map <c-K> <c-w>K
-map <c-L> <c-w>L
-map <c-H> <c-w>H
-map <Leader>, :NERDTreeToggle<CR>
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+"map <C-S-j> <C-w><S-j>
+"map <C-S-k> <C-w><S-k>
+"map <C-S-l> <C-w><S-l>
+"map <C-S-h> <C-w><S-h>
+map <silent><Leader>, :NERDTreeToggle<CR>
 
 " Menu completion
 set wildmenu
