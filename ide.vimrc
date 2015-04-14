@@ -12,11 +12,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'msarfati/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bronson/vim-trailing-whitespace'
-"Plugin 'powerline/powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-togglemouse'
 Plugin 'bling/vim-airline'
-"Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-commentary'
 Plugin 'dahu/vimple'
 Plugin 'Raimondi/vim-buffalo'
@@ -33,6 +31,7 @@ Plugin 'airblade/vim-gitgutter'
 """ Python
 "Plugin 'klen/python-mode'
 Plugin 'nvie/vim-flake8'
+Plugin 'hdima/python-syntax'
 """ Markdown
 Plugin 'gabrielelana/vim-markdown'
 "Plugin 'suan/vim-instant-markdown'
@@ -147,6 +146,10 @@ map <C-h> <C-w>h
 "map <C-S-l> <C-w><S-l>
 "map <C-S-h> <C-w><S-h>
 map <silent><Leader>, :NERDTreeToggle<CR>
+
+" Code folding
+set foldmethod=syntax
+set foldlevelstart=1
 
 " Menu completion
 set wildmenu
