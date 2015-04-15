@@ -30,8 +30,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 """ Python
 "Plugin 'klen/python-mode'
-Plugin 'nvie/vim-flake8'
 Plugin 'hdima/python-syntax'
+Plugin 'nvie/vim-flake8'
+Plugin 'sentientmachine/Pretty-Vim-Python'
 """ Markdown
 Plugin 'gabrielelana/vim-markdown'
 "Plugin 'suan/vim-instant-markdown'
@@ -100,6 +101,10 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+" Code folding
+set foldmethod=syntax
+set foldlevelstart=1
+
 " Reload vimrc immediately after save
 autocmd! bufwritepost .vimrc source %
 
@@ -115,10 +120,9 @@ autocmd FileType markdown set breakat=\ <CR>
 
 " Python mode
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+let python_highlight_all = 1
 
 " Lisp mode
-"autocmd FileType lisp :call AutoPairsToggle()
-
 
 """"" Key remaps -- Handles moving up and down
 nnoremap j gj
@@ -132,7 +136,6 @@ imap <C-k> <esc>"_d$i
 noremap <Leader>w :update<CR>
 noremap <Leader>q :q<CR>
 "" Quick commenting
-"noremap <Leader>/ :call NERDComment(0,"toggle") <CR>
 map <silent><Leader>/ <Plug>CommentaryLine
 "" Quick Buffer & Windows
 map <silent><Leader>n <esc>:tabprevious<CR>
@@ -146,10 +149,6 @@ map <C-h> <C-w>h
 "map <C-S-l> <C-w><S-l>
 "map <C-S-h> <C-w><S-h>
 map <silent><Leader>, :NERDTreeToggle<CR>
-
-" Code folding
-set foldmethod=syntax
-set foldlevelstart=1
 
 " Menu completion
 set wildmenu
@@ -168,3 +167,4 @@ set ttimeoutlen=50
 " Enable color
 " Remember to put this in .bashrc to work with terminator: export TERM=xterm-256color
 colorscheme molokai
+highlight Comment cterm=bold
