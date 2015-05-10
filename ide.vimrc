@@ -127,6 +127,8 @@ let python_highlight_all = 1
 """"" Key remaps -- Handles moving up and down
 nnoremap j gj
 nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 let mapleader=","
 vnoremap < <gv
 vnoremap > >gv
