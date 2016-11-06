@@ -44,8 +44,8 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-set wrap
-set textwidth=79
+"set wrap
+"set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 
@@ -72,9 +72,16 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " Close window if only NERDtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
 " Theming
 syntax on
-let g:rehash256 = 1
-colorscheme molokai
+set background=dark
+highlight Comment cterm=bold
+"let g:rehash256 = 1
+"colorscheme molokai
+
+" On Arch Linux (and prolly other distros), install gvim to allow vim to access use keyboard
+set clipboard=unnamedplus
+
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
